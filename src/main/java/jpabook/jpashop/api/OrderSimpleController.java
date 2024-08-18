@@ -41,7 +41,7 @@ public class OrderSimpleController {
      *   애초에 DTO 객체 쓰면 이런 문제를 해결 가능하다. 그리고 엔티티를 노출하면 나중에 엔티티정보 바뀌면 api스펙이 다 바뀐다.
      */
 
-    @GetMapping("/api/vi/simple-orders")
+    @GetMapping("/api/v1/simple-orders")
     public List<Order> ordersV1() {
         List<Order> all = orderRepository.findAllByString(new OrderSearch());
         for(Order order : all) {
