@@ -132,6 +132,7 @@ public class OrderApiController {
     // 이거는 한방에 데이터(컬렉션때매 뻥튀기상태) 땡겨와서 로직으로 지지고 볶아서 내가 원하는 형태로 DTO에 담는거임.
     // 이렇게 하는거 아니면 ToOne 먼저 한번에 join sql날려서 DTO에 담고, 그다음 for문으로 컬렉션 1+N 쿼리날리면서 DTO에 저장하거나 , 자료구조 쓰거나 하면서 해야함.
     // 페이징 불가능 -> ToMany 조인때문에 그럼.
+    // 결론 -> 단건조회 = v4 / 다중조회 = v5 / 쿼리한번에 가능, 좋아보이는데 페이징은불가능  = v6
     @GetMapping("/api/v6/orders")
     public List<OrderQueryDto> ordersV6() {
         List<OrderFlatDto> flats = orderQueryRepository.findAllByDto_flat();
